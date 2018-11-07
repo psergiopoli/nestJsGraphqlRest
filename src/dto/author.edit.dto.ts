@@ -1,6 +1,6 @@
 import { IsString, Length, IsInt, Min } from 'class-validator';
 
-export class AuthorEditRequest {
+export class AuthorEditDto {
 
     @IsInt()
     @Min(1)

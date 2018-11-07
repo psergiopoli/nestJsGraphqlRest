@@ -2,11 +2,22 @@ type Query {
   author(id: Int!): Author
 }
 
+type Mutation {
+  createAuthor(authorCreateDto: AuthorCreateDto): Author
+}
+
 type Author {
-  id: Int!
+  id: Int
   firstName: String
   lastName: String
   fullName: String
+  dogName: String
   points: Int
   isActive: Boolean
+}
+
+input AuthorCreateDto {
+  firstName: String
+  lastName: String
+  dogName: String
 }

@@ -1,6 +1,6 @@
 import { IsString, Length } from 'class-validator';
 
-export class AuthorCreateRequest {
+export class AuthorCreateDto {
 
     @IsString()
     @Length(3, 100, {

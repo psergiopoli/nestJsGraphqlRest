@@ -26,6 +26,8 @@
       "@controllers/*": ["src/controller/*"],
       "@guards": ["src/guard"],
       "@guards/*": ["src/guard/*"],
+      "@dtos": ["src/dto"],
+      "@dtos/*": ["src/dto/*"],
     }
   },
   "include": [

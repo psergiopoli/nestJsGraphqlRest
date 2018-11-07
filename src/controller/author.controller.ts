@@ -3,10 +3,9 @@ import { Get, Controller, Param, Query, Res, HttpStatus, Body, Post, BadRequestE
 import { AuthorService } from 'src/service/author.service';
 import { Util } from 'src/util/util';
 import { Author } from '@models';
-import { AuthorCreateRequest } from 'src/request/author.create.request';
 import { ValidationPipe } from 'src/validation.pipe';
-import { AuthorEditRequest } from 'src/request/author.edit.request';
 import { AuthGuard } from '@nestjs/passport';
+import { AuthorCreateDto, AuthorEditDto } from '@dtos';
 
 @Controller('author')
 export class AuthorController {
@@ -66,7 +65,7 @@ export class AuthorController {
 
     @Post()
     @UseGuards(AuthGuard('jwt-guest'))
-    async createAuthor(@Body(new ValidationPipe()) authorDto: AuthorCreateRequest, @Res() res): Promise<Author> {
+    async createAuthor(@Body(new ValidationPipe()) authorDto: AuthorCreateDto, @Res() res): Promise<Author> {
     const author = {
         firstName: authorDto.firstName,
         lastName: authorDto.lastName,
@@ -83,7 +82,7 @@ export class AuthorController {
 
     @Put()
     @UseGuards(AuthGuard('jwt-guest'))
-    async editAuthor(@Body(new ValidationPipe()) authorDto: AuthorEditRequest, @Res() res): Promise<Author> {
+    async editAuthor(@Body(new ValidationPipe()) authorDto: AuthorEditDto, @Res() res): Promise<Author> {
     let author;
 
     try {
