@@ -1,0 +1,12 @@
+type Query {
+  author(id: Int!): Author
+}
+
+type Author {
+  id: Int!
+  firstName: String
+  lastName: String
+  fullName: String
+  points: Int
+  isActive: Boolean
+}

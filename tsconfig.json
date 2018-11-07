@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "paths": {
+      "@models": ["src/model"],
+      "@models/*": ["src/model/*"],
+      "@services": ["src/service"],
+      "@services/*": ["src/service/*"],
+      "@utils": ["src/util"],
+      "@utils/*": ["src/util/*"],
+      "@controllers": ["src/controller"],
+      "@controllers/*": ["src/controller/*"],
+      "@guards": ["src/guard"],
+      "@guards/*": ["src/guard/*"],
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ],
+}
