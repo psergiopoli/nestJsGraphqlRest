@@ -15,6 +15,11 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "lib": [
+      "es2017",
+      "dom",
+      "esnext.asynciterable"
+    ],
     "paths": {
       "@models": ["src/model"],
       "@models/*": ["src/model/*"],
