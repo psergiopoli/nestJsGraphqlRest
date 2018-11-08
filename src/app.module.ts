@@ -9,6 +9,7 @@ import { services } from './app.module.services';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { join } from 'path';
+import { DatabaseModule } from './database';
 
 @Module({
   imports: [
@@ -27,7 +28,7 @@ import { join } from 'path';
       },
     }),
     PassportModule.register({ defaultStrategy: 'jwt-guest' }),
-    TypeOrmModule.forRoot(),
+    DatabaseModule(),
     TypeOrmModule.forFeature([Author]), // pode ser colocado no modulo da feature
   ],
   controllers: [...controllers],

@@ -1,5 +1,5 @@
 import { Provider } from '@nestjs/common';
-import { AuthService, AuthorService } from '@services';
+import { AuthService, AuthorService, ConfigService } from '@services';
 import { JwtStrategyGuest, GqlAuthGuardGuest } from '@guards';
 
 export const services: Provider[] = [
@@ -7,4 +7,8 @@ export const services: Provider[] = [
     AuthorService,
     JwtStrategyGuest,
     GqlAuthGuardGuest,
+    {
+        provide: ConfigService,
+        useValue: new ConfigService(`${process.env.NODE_ENV}.env`),
+    },
 ];

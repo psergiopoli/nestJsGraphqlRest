@@ -6,7 +6,7 @@ import { Author } from '@models';
 import { ValidationPipe } from 'src/validation.pipe';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthorCreateDto, AuthorEditDto } from '@dtos';
-import { AuthService } from '@services';
+import { AuthService, ConfigService } from '@services';
 import { RestAuthGuardGuest } from '@guards/rest.auth.guard.guest';
 
 @Controller('author')
