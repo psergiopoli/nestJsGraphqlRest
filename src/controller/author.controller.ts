@@ -1,13 +1,12 @@
 import { Get, Controller, Param, Query, Res, HttpStatus, Body, Post, BadRequestException,
     InternalServerErrorException, NotFoundException, Put, UseGuards, Req } from '@nestjs/common';
-import { AuthorService } from 'src/service/author.service';
-import { Util } from 'src/util/util';
+import { AuthorService } from 'service/author.service';
 import { Author } from '@models';
-import { ValidationPipe } from 'src/validation.pipe';
-import { AuthGuard } from '@nestjs/passport';
+import { ValidationPipe } from 'validation.pipe';
 import { AuthorCreateDto, AuthorEditDto } from '@dtos';
-import { AuthService, ConfigService } from '@services';
+import { AuthService } from '@services';
 import { RestAuthGuardGuest } from '@guards/rest.auth.guard.guest';
+import { Util } from '@utils';
 
 @Controller('author')
 export class AuthorController {
