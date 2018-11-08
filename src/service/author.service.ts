@@ -1,8 +1,8 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Author } from 'src/model/author.entity';
-import { Repository, QueryFailedError } from 'typeorm';
-import { Util } from 'src/util/util';
+import { Repository } from 'typeorm';
+import { Author } from '@models';
+import { Util } from '@utils';
 
 @Injectable()
 export class AuthorService {
