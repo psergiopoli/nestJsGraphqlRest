@@ -1,6 +1,7 @@
-import { Module, Global, DynamicModule } from '@nestjs/common';
+import { DynamicModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigService } from '@services';
+import { Author } from '@models';
 
 export function DatabaseModule(): DynamicModule {
   const configService = new ConfigService(`${process.env.NODE_ENV}.env`);
@@ -12,7 +13,11 @@ export function DatabaseModule(): DynamicModule {
     username: configService.envConfig.DB_USERNAME,
     password: configService.envConfig.DB_PASSWORD,
     database: configService.envConfig.DB_DATABASE,
-    entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    entities: [Author],
     synchronize: true,
   });
+}
+
+export function Models(): DynamicModule {
+  return TypeOrmModule.forFeature([Author]);
 }
