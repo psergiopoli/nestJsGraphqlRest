@@ -1,19 +1,22 @@
 import { Get, Controller, Param, Query, Res, HttpStatus, Body, Post, BadRequestException,
-    InternalServerErrorException, NotFoundException, Put, UseGuards } from '@nestjs/common';
+    InternalServerErrorException, NotFoundException, Put, UseGuards, Req } from '@nestjs/common';
 import { AuthorService } from 'src/service/author.service';
 import { Util } from 'src/util/util';
 import { Author } from '@models';
 import { ValidationPipe } from 'src/validation.pipe';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthorCreateDto, AuthorEditDto } from '@dtos';
+import { AuthService } from '@services';
+import { RestAuthGuardGuest } from '@guards/rest.auth.guard.guest';
 
 @Controller('author')
 export class AuthorController {
   constructor(private readonly authorService: AuthorService,
+              private readonly authService: AuthService,
     ) {}
 
     @Get('/list')
-    @UseGuards(AuthGuard('jwt-guest'))
+    @UseGuards(RestAuthGuardGuest)
     async listAuthor(@Query('max') max: number = 10, @Query('offset') offset: number = 0, @Res() res): Promise<any> {
         try {
             const list = await this.authorService.list(max, offset);
@@ -24,7 +27,7 @@ export class AuthorController {
     }
 
     @Get()
-    @UseGuards(AuthGuard('jwt-guest'))
+    @UseGuards(RestAuthGuardGuest)
     async find(@Query('id') id, @Res() res): Promise<Author> {
     if (id != null) {
         let author;
@@ -44,7 +47,7 @@ export class AuthorController {
     }
 
     @Get('/:id')
-    @UseGuards(AuthGuard('jwt-guest'))
+    @UseGuards(RestAuthGuardGuest)
     async findByPath(@Param('id') id, @Res() res): Promise<Author> {
     if (id != null) {
         let author;
@@ -64,7 +67,7 @@ export class AuthorController {
     }
 
     @Post()
-    @UseGuards(AuthGuard('jwt-guest'))
+    @UseGuards(RestAuthGuardGuest)
     async createAuthor(@Body(new ValidationPipe()) authorDto: AuthorCreateDto, @Res() res): Promise<Author> {
     const author = {
         firstName: authorDto.firstName,
@@ -81,7 +84,7 @@ export class AuthorController {
     }
 
     @Put()
-    @UseGuards(AuthGuard('jwt-guest'))
+    @UseGuards(RestAuthGuardGuest)
     async editAuthor(@Body(new ValidationPipe()) authorDto: AuthorEditDto, @Res() res): Promise<Author> {
     let author;
 

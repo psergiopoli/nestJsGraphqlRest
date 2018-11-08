@@ -14,8 +14,9 @@ export class JwtStrategyGuest extends PassportStrategy(Strategy, 'jwt-guest') {
   }
 
   validate(token: Token) {
-    // pode checar se o usuario que esta no token existe e dar autorização pela role dele
-    // e jogar a exception UnauthorizedException
-    return true;
+    if (token) {
+      return true;
+    }
+    return false;
   }
 }

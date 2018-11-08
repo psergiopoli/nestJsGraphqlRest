@@ -5,10 +5,12 @@ import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuardGuest } from '@guards';
 import { AuthorCreateDto } from '@dtos';
 import { ValidationPipe } from 'src/validation.pipe';
+import { AuthService } from '@services';
 
 @Resolver('Author')
 export class AuthorResolver {
   constructor( private readonly authorService: AuthorService,
+               private readonly authService: AuthService,
     ) {}
 
   @Query('author')
