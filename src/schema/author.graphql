@@ -1,0 +1,15 @@
+type Author {
+  id: Int
+  firstName: String
+  lastName: String
+  fullName: String
+  dogName: String
+  points: Int
+  isActive: Boolean
+}
+
+input AuthorCreateDto {
+  firstName: String
+  lastName: String
+  dogName: String
+}
