@@ -1,5 +1,4 @@
-import { AppController } from './app.controller';
-import { AuthorController, AuthController } from '@controllers';
+import { AuthorController, AuthController, AppController } from '@controllers';
 
 export const controllers: any[] = [
     AppController,

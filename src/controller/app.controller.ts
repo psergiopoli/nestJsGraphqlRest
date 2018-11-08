@@ -1,13 +1,12 @@
 import { Get, Controller, Param } from '@nestjs/common';
-import { AuthorService } from './service/author.service';
 import { Query } from '@nestjs/graphql';
 
 @Controller()
 export class AppController {
-  constructor(private readonly authorService: AuthorService) {}
+  constructor() {}
 
   @Get()
-  root(@Query('id') id): any {
+  root(): any {
     return {
       msg: 'App is running',
     };
