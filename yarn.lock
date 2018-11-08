@@ -103,6 +103,11 @@
     "@types/jsonwebtoken" "^7.2.7"
     jsonwebtoken "^8.3.0"
 
+"@nestjs/passport@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/passport/-/passport-5.1.0.tgz#abbf028290800092724238f5a2c5b68ae035ce86"
+  integrity sha512-I9UMWM9yfm/7w50f/glnELfKJUiBa1N2b57nqyOxKCbSApaRQtyvw70uMutbCmaOCkw6bjwBayG3uNrOodFMqw==
+
 "@nestjs/testing@^5.1.0":
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-5.4.0.tgz#4728021fc4012243b4dd2ffb4228b59df7770235"
@@ -1602,6 +1607,11 @@ dotenv@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
   integrity sha512-4As8uPrjfwb7VXC+WnLCbXK7y+Ueb2B3zgNCePYfhxS1PYeaO1YTeplffTEcbfLhvFNGLAz90VvJs9yomG7bow==
+
+dotenv@^6.0.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.1.0.tgz#9853b6ca98292acb7dec67a95018fa40bccff42c"
+  integrity sha512-/veDn2ztgRlB7gKmE3i9f6CmDIyXAy6d5nBq+whO9SLX+Zs1sXEgFLPi+aSuWqUuusMfbi84fT8j34fs1HaYUw==
 
 duplexer3@^0.1.4:
   version "0.1.4"
@@ -3559,6 +3569,11 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+
 lodash.includes@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.includes/-/lodash.includes-4.3.0.tgz#60bb98a87cb923c68ca1e51325483314849f553f"
@@ -3593,6 +3608,11 @@ lodash.once@^4.0.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
   integrity sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=
+
+lodash.set@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
+  integrity sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
@@ -3963,6 +3983,18 @@ negotiator@0.6.1:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
   integrity sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
 
+nestjs-config@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/nestjs-config/-/nestjs-config-1.2.7.tgz#3e19f133e5a809ad5ab225b61e7dc94799c1b55b"
+  integrity sha512-Prgsu6XPPnoUJCf/hfwosAVByfHxlzJx/LH5oz5f/UfPhVwDi29lqtWacPP34fzTewMffiwfZvyjgLZC2W6tcw==
+  dependencies:
+    dotenv "^6.0.0"
+    glob "^7.1.2"
+    lodash.get "^4.4.2"
+    lodash.set "^4.3.2"
+    reflect-metadata "^0.1.12"
+    rxjs "^6.0.0"
+
 next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
@@ -4305,6 +4337,13 @@ pascalcase@^0.1.1:
   resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
   integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
 
+passport-http-bearer@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/passport-http-bearer/-/passport-http-bearer-1.0.1.tgz#147469ea3669e2a84c6167ef99dbb77e1f0098a8"
+  integrity sha1-FHRp6jZp4qhMYWfvmdu3fh8AmKg=
+  dependencies:
+    passport-strategy "1.x.x"
+
 passport-jwt@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/passport-jwt/-/passport-jwt-4.0.0.tgz#7f0be7ba942e28b9f5d22c2ebbb8ce96ef7cf065"
@@ -4313,10 +4352,18 @@ passport-jwt@^4.0.0:
     jsonwebtoken "^8.2.0"
     passport-strategy "^1.0.0"
 
-passport-strategy@^1.0.0:
+passport-strategy@1.x.x, passport-strategy@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/passport-strategy/-/passport-strategy-1.0.0.tgz#b5539aa8fc225a3d1ad179476ddf236b440f52e4"
   integrity sha1-tVOaqPwiWj0a0XlHbd8ja0QPUuQ=
+
+passport@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/passport/-/passport-0.4.0.tgz#c5095691347bd5ad3b5e180238c3914d16f05811"
+  integrity sha1-xQlWkTR71a07XhgCOMORTRbwWBE=
+  dependencies:
+    passport-strategy "1.x.x"
+    pause "0.0.1"
 
 path-dirname@^1.0.0:
   version "1.0.2"
@@ -4387,6 +4434,11 @@ pause-stream@^0.0.11:
   integrity sha1-/lo0sMvOErWqaitAPuLnO2AvFEU=
   dependencies:
     through "~2.3"
+
+pause@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
+  integrity sha1-HUCLP9t2kjuVQ9lvtMnf1TXZy10=
 
 performance-now@^2.1.0:
   version "2.1.0"
@@ -4824,7 +4876,7 @@ rsvp@^3.3.3:
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-3.6.2.tgz#2e96491599a96cde1b515d5674a8f7a91452926a"
   integrity sha512-OfWGQTb9vnwRjwtA2QwpG2ICclHC3pgXZO5xt8H2EfgDquO0qVdSb5T88L4qJVAEugbS56pAuV4XZM58UX8ulw==
 
-rxjs@^6.2.2:
+rxjs@^6.0.0, rxjs@^6.2.2:
   version "6.3.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz#3c6a7fa420e844a81390fb1158a9ec614f4bad55"
   integrity sha512-JTWmoY9tWCs7zvIk/CvRjhjGaOd+OVBM987mxFo+OW66cGpdKjZcpmc74ES1sB//7Kl/PAe8+wEakuhG4pcgOw==

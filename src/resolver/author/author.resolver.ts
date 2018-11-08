@@ -34,4 +34,9 @@ export class AuthorResolver {
     return authorResponse;
   }
 
+  @ResolveProperty('fullName')
+  async authorFullName(@Parent() author: Author) {
+    return `${author.firstName} ${author.lastName}`;
+  }
+
 }

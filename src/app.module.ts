@@ -15,7 +15,7 @@ import { join } from 'path';
     JwtModule.register({
       secretOrPrivateKey: 'secretKey',
       signOptions: {
-        expiresIn: 3600,
+        expiresIn: 3600, // Usar nestJs config
       },
     }),
     GraphQLModule.forRoot({
