@@ -2,7 +2,7 @@ import { Resolver, Query, Args, ResolveProperty, Parent, Mutation } from '@nestj
 import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuardGuest } from '@guards';
 import { AuthorCreateDto } from '@dtos';
-import { ValidationPipe } from 'validation.pipe';
+import { ValidationPipe } from '@pipes';
 import { AuthService, AuthorService } from '@services';
 import { Author } from '@models';
 

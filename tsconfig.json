@@ -11,37 +11,39 @@
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "src",
+    "baseUrl": "./",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2018",
+      "es2017",
       "dom",
       "esnext.asynciterable"
     ],
     "paths": {
-      "@models": ["model"],
-      "@models/*": ["model/*"],
-      "@services": ["service"],
-      "@services/*": ["service/*"],
-      "@utils": ["util"],
-      "@utils/*": ["util/*"],
-      "@controllers": ["controller"],
-      "@controllers/*": ["controller/*"],
-      "@guards": ["guard"],
-      "@guards/*": ["guard/*"],
-      "@dtos": ["dto"],
-      "@dtos/*": ["dto/*"],
-      "@conf": ["conf"],
-      "@conf/*": ["conf/*"],
-    },
+      "@models": ["src/model"],
+      "@models/*": ["src/model/*"],
+      "@services": ["src/service"],
+      "@services/*": ["src/service/*"],
+      "@utils": ["src/util"],
+      "@utils/*": ["src/util/*"],
+      "@controllers": ["src/controller"],
+      "@controllers/*": ["src/controller/*"],
+      "@guards": ["src/guard"],
+      "@guards/*": ["src/guard/*"],
+      "@dtos": ["src/dto"],
+      "@dtos/*": ["src/dto/*"],
+      "@conf": ["src/conf"],
+      "@conf/*": ["src/conf/*"],
+      "@pipes": ["src/pipe"],
+      "@pipes/*": ["src/conf/*"]
+    }
   },
   "include": [
-    "src/**/*",
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
     "**/*.spec.ts"
-  ],
+  ]
 }

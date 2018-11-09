@@ -1,10 +1,9 @@
 import { Get, Controller, Param, Query, Res, HttpStatus, Body, Post, BadRequestException,
     InternalServerErrorException, NotFoundException, Put, UseGuards, Req } from '@nestjs/common';
-import { AuthorService } from 'service/author.service';
 import { Author } from '@models';
-import { ValidationPipe } from 'validation.pipe';
+import { ValidationPipe } from '@pipes';
 import { AuthorCreateDto, AuthorEditDto } from '@dtos';
-import { AuthService } from '@services';
+import { AuthService, AuthorService } from '@services';
 import { RestAuthGuardGuest } from '@guards/rest.auth.guard.guest';
 import { Util } from '@utils';
 
