@@ -29,6 +29,7 @@ export class ConfigService {
       DB_PASSWORD: Joi.string().default('root'),
       DB_DATABASE: Joi.string().default('graphql_nest'),
       DB_HOST: Joi.string().default('localhost'),
+      JWT_SECRET: Joi.string().default('hVDb7D33wwHfgxtDpZtI5fCMsDYjEfe6'),
       DB_PORT: Joi.number().default(3306),
     });
 

@@ -1,7 +1,7 @@
 import { DynamicModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigService } from '@services';
 import { Author } from '@models';
+import { ConfigService } from '@conf';
 
 export function DatabaseModule(): DynamicModule {
   const configService = new ConfigService(`${process.env.NODE_ENV}.env`);
