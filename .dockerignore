@@ -14,3 +14,4 @@ Dockerfile
 README.md
 *.env
 .env
+dist

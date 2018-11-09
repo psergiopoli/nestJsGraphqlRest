@@ -1,7 +1,9 @@
-FROM node:8
+FROM node:10.13.0-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
+
+RUN apk update && apk add bash
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -16,12 +18,12 @@ RUN npm install
 COPY . .
 
 # Build TS to JS
-RUN npm build
+RUN yarn build:prod
 
 HEALTHCHECK --interval=2m --timeout=3s \
   CMD curl -f http://localhost:3000/ || exit 1
 
 EXPOSE 3000
-CMD [ "npm", "start:prod" ]
+CMD [ "yarn", "start:prod" ]
 
 
