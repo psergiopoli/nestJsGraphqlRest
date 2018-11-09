@@ -15,7 +15,7 @@ services:
     restart: on-failure:10
     volumes:
       - ./wait-for-it.sh:/usr/src/app/wait-for-it.sh
-      - ../development.env:/usr/src/app/development.env
+      - ../production.env:/usr/src/app/production.env
 
   mysql:
     command:
