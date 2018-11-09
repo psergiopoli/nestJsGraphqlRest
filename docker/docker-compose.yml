@@ -7,7 +7,7 @@ services:
     depends_on:
       - mysql
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
     networks:
       - bd-tier
     ports:
