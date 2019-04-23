@@ -2,7 +2,7 @@ import { Injectable, ExecutionContext } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from '@services';
-import { User } from '@models';
+import { User } from '@dtos';
 
 @Injectable()
 export class GqlAuthGuardGuest extends AuthGuard('jwt-guest') {

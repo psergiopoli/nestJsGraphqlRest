@@ -1,21 +1,39 @@
-import { Module } from '@nestjs/common';
+import {  DynamicModule } from '@nestjs/common';
 import { Connection } from 'typeorm';
-import { controllers } from './app.module.controllers';
-import { resolvers } from './app.module.resolvers';
-import { services } from './app.module.services';
 import { JwtConf, GraphqlConf, Models, Passport, DatabaseModule } from '@conf';
+import { Provider } from '@nestjs/common';
+import * as controller from '@controllers';
+import * as service from '@services';
+import * as guard from '@guards';
+import * as resolver from './resolver';
+import * as dotenv from 'dotenv';
 
-@Module({
-  imports: [
-    JwtConf(),
-    Passport(),
-    GraphqlConf(),
-    DatabaseModule(),
-    Models(),
-  ],
-  controllers: [...controllers],
-  providers: [...resolvers, ...services],
-})
+export const resolvers: Provider[] = Object.values(resolver);
+
+export const services: Provider[] = [
+    ...Object.values(service),
+    ...Object.values(guard),
+];
+
+export const controllers: any[] = Object.values(controller);
+
 export class AppModule {
+
+  public static forRoot(): DynamicModule {
+    dotenv.config();
+    return {
+      module: AppModule,
+      imports: [
+        JwtConf(),
+        Passport(),
+        GraphqlConf(),
+        DatabaseModule(),
+        Models(),
+      ],
+      controllers: [...controllers],
+      providers: [...resolvers, ...services],
+    };
+  }
+
   constructor(private readonly connection: Connection) {}
 }
