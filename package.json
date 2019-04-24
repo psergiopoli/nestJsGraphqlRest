@@ -30,6 +30,7 @@
     "class-transformer": "^0.2.0",
     "class-validator": "^0.9.1",
     "dotenv": "^6.1.0",
+    "express-http-context": "^1.2.1",
     "graphql": "^14.0.2",
     "graphql-tools": "^4.0.3",
     "joi": "^14.0.4",

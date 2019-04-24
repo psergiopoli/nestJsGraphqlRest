@@ -8,7 +8,12 @@ export class AuthService {
 
     constructor(private readonly jwtService: JwtService){}
 
-    guestToken(): Token {
+    getJwtPayload(request): Token {
+        const token = request.headers.authorization.replace('Bearer ', '');
+        return this.jwtService.verify(token);
+    }
+
+    guestToken(): any {
         const user: User = {
             id: -1,
             username: 'guest',
@@ -17,12 +22,10 @@ export class AuthService {
 
         const jwt = this.jwtService.sign(user);
 
-        return {
-            jwt,
-            roles: ['GUEST'],
-        };
+        return jwt;
     }
 
+    // TODO, need to use a database or api auth
     getUser(req): User {
         const user = this.jwtService.verify(req.headers.authorization.replace('Bearer ', ''));
         return user;

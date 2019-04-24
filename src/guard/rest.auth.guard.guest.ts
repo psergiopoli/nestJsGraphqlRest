@@ -1,6 +1,8 @@
-import { Injectable, ExecutionContext } from '@nestjs/common';
+import { Injectable, ExecutionContext, Logger, UnauthorizedException } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from '@services';
+import { User } from '@dtos';
+import { Util } from '@utils';
 
 @Injectable()
 export class RestAuthGuardGuest extends AuthGuard('jwt-guest') {
@@ -10,13 +12,24 @@ export class RestAuthGuardGuest extends AuthGuard('jwt-guest') {
   }
 
   canActivate(context: ExecutionContext) {
-    const req = context.switchToHttp().getRequest();
-    // const user: User = this.authService.getUser(req);
-    // console.log(user);
-    // console.log(req.query.id); // acessa o parametro bla?id=15, 15
+    const logger = new Logger(RestAuthGuardGuest.name);
+    try {
+      super.canActivate(context);
+    } catch (err) {
+      logger.error(err);
+      throw new UnauthorizedException('unauthorized');
+    }
 
-    // pode ser feito um guard espefico para uma rota
-    // para checar se o usuario tem acesso ao recurso
-    return super.canActivate(context);
+    const req = context.switchToHttp().getRequest();
+    const user: User = this.authService.getUser(req);
+    logger.log(user);
+    logger.log(req.query.id);
+
+    Util.setContext('user', user);
+    Util.setContext('token', this.authService.getJwtPayload(req));
+
+    // TODO: heres go the logic of user access
+    // now all users with auth have access in decorated methods
+    return true;
   }
 }

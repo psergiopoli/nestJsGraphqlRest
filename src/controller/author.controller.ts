@@ -6,6 +6,7 @@ import { AuthorCreateDto, AuthorEditDto } from '@dtos';
 import { AuthService, AuthorService } from '@services';
 import { RestAuthGuardGuest } from '@guards/rest.auth.guard.guest';
 import { Util } from '@utils';
+import { JwtPayload } from 'src/decorator/context';
 
 @Controller('author')
 export class AuthorController {

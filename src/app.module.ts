@@ -1,5 +1,4 @@
-import {  DynamicModule } from '@nestjs/common';
-import { Connection } from 'typeorm';
+import {  DynamicModule, MiddlewareConsumer } from '@nestjs/common';
 import { JwtConf, GraphqlConf, Models, Passport, DatabaseModule } from '@conf';
 import { Provider } from '@nestjs/common';
 import * as controller from '@controllers';
@@ -7,6 +6,7 @@ import * as service from '@services';
 import * as guard from '@guards';
 import * as resolver from './resolver';
 import * as dotenv from 'dotenv';
+import * as httpContext from 'express-http-context';
 
 export const resolvers: Provider[] = Object.values(resolver);
 
@@ -35,5 +35,9 @@ export class AppModule {
     };
   }
 
-  constructor(private readonly connection: Connection) {}
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(httpContext.middleware)
+      .forRoutes('/');
+  }
 }
