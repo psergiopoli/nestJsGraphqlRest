@@ -17,10 +17,10 @@ export class GqlAuthGuardGuest extends AuthGuard('jwt-guest') {
     return ctx.getContext().req;
   }
 
-  canActivate(context: ExecutionContext) {
+  async canActivate(context: ExecutionContext) {
     const logger = new Logger(GqlAuthGuardGuest.name);
     try {
-      super.canActivate(context);
+      await super.canActivate(context);
     } catch (err) {
       logger.error(err);
       throw new UnauthorizedException('unauthorized');

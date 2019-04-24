@@ -15,6 +15,7 @@ export class JwtStrategyGuest extends PassportStrategy(Strategy, 'jwt-guest') {
   }
 
   validate(token: Token) {
+    // return Boolean(token);
     if (token) {
       return true;
     }

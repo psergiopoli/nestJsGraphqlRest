@@ -11,10 +11,10 @@ export class RestAuthGuardGuest extends AuthGuard('jwt-guest') {
     super();
   }
 
-  canActivate(context: ExecutionContext) {
+  async canActivate(context: ExecutionContext) {
     const logger = new Logger(RestAuthGuardGuest.name);
     try {
-      super.canActivate(context);
+      await super.canActivate(context);
     } catch (err) {
       logger.error(err);
       throw new UnauthorizedException('unauthorized');
